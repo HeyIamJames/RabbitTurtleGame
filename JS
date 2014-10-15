@@ -1,0 +1,27 @@
+<script>
+	function Animal(name, speed, focus, position) {
+	  this.name = name;
+	  this.speed = speed;
+	  this.focus = focus;
+	  this.position = 0;
+	  this.isFocused = function(){
+	  	return Math.floor(Math.random() * 10) < this.focus;
+	  }
+	  this.advance = function() {
+	  	if (this.isFocused()) {
+	  		this.position += this.speed;
+	  	}
+	  }
+	}
+	var rabbit = new Animal("Rocky", 10, 1);
+	var turttle = new Animal("Sara", 2, 9);
+	var meters = 100;
+
+	while (rabbit.position < meters && turttle.position < meters) {
+		rabbit.advance();
+		turttle.advance();
+	}
+	alert((rabbit.name) + " is at" + rabbit.position );
+	alert((turttle.name) + " is at" + turttle.position );
+</script>
+
